@@ -1,0 +1,46 @@
+DOXYFILE_ENCODING      = ASCII
+PROJECT_NAME           = OpenOBEX
+PROJECT_NUMBER         = @VERSION@
+OUTPUT_DIRECTORY       = @top_builddir@/doc
+ABBREVIATE_BRIEF       = "The $name class" \
+                         "The $name widget" \
+                         "The $name file" \
+                         is \
+                         provides \
+                         specifies \
+                         contains \
+                         represents \
+                         a \
+                         an \
+                         the
+FULL_PATH_NAMES        = NO
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+MARKDOWN_SUPPORT       = NO
+
+EXTRACT_ALL            = YES
+EXTRACT_LOCAL_CLASSES  = NO
+
+INPUT                  = @DOC_SOURCE_FILES@
+INPUT_ENCODING         = ASCII
+FILE_PATTERNS          = *.c *.h
+EXAMPLE_PATTERNS       = *
+VERBATIM_HEADERS       = NO
+ALPHABETICAL_INDEX     = NO
+
+GENERATE_HTML          = @DOC_HTML_OUTPUT@
+SEARCHENGINE           = NO
+
+GENERATE_LATEX         = @DOC_LATEX_OUTPUT@
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             = "LIB_SYMBOL=" \
+                         "CALLAPI=" \
+                         "OPENOBEX_SYMBOL(retval)=retval" \
+                         HAVE_IRDA \
+                         HAVE_USB \
+                         HAVE_USB1 \
+                         HAVE_BLUETOOTH

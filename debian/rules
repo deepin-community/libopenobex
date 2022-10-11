@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+BUILDDIR = obj-$(DEB_HOST_MULTIARCH)
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	dh_auto_clean -B $(BUILDDIR)
+	dh_auto_clean -B $(BUILDDIR)-static
+
+override_dh_auto_configure:
+	# dynamicly linked
+	dh_auto_configure -B $(BUILDDIR) \
+		-- $(CMAKE_FLAGS) \
+		-DCMAKE_SHARED_LINKER_FLAGS_RELEASE="$(LDFLAGS)" \
+		-DBUILD_SHARED_LIBS=ON -DBUILD_DOCUMENTATION=ON \
+		-DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_SKIP_RPATH=ON
+	# statically linked
+	dh_auto_configure -B $(BUILDDIR)-static \
+		-- $(CMAKE_FLAGS) \
+		-DBUILD_SHARED_LIBS=OFF -DBUILD_DOCUMENTATION=OFF \
+		-DBUILD_TESTS=OFF \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_SKIP_RPATH=ON
+
+override_dh_auto_build:
+	# dynamically linked
+	dh_auto_build -B $(BUILDDIR)
+	dh_auto_build -B $(BUILDDIR) -- openobex-apps
+	# statically linked
+	dh_auto_build -B $(BUILDDIR)-static
+
+override_dh_auto_install:
+	dh_auto_install -B $(BUILDDIR)
+	dh_auto_install -B $(BUILDDIR)-static
+	cp -v $(BUILDDIR)-static/lib/*.a debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/

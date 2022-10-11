@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<reference id="openobex-apps">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="referenceinfo.xml" />
+
+  <title>openobex</title>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ircp.xml" xpointer="ircp" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="irobex_palm3.xml" xpointer="irobex_palm3" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="irxfer.xml" xpointer="irxfer" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="obex_find.xml" xpointer="obex_find" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="obex_tcp.xml" xpointer="obex_tcp" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="obex_test.xml" xpointer="obex_test" />
+</reference>

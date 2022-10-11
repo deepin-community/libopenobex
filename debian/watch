@@ -1,0 +1,5 @@
+version=3
+
+# find new files on sourceforge, for debscripts >= 2.9
+http://sf.net/openobex/openobex-(.+)-Source\.(?:zip|tar\.gz)  debian  uupdate
+http://sf.net/openobex/openobex-([0-9\.]+)\.tar\.gz  debian  uupdate

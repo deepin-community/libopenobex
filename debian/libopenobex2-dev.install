@@ -1,0 +1,7 @@
+usr/include/openobex/obex.h
+usr/include/openobex/obex_const.h
+usr/include/openobex/version.h
+usr/lib/*/libopenobex.a
+usr/lib/*/libopenobex.so
+usr/lib/*/pkgconfig/openobex.pc
+usr/lib/*/cmake/*/*.cmake

@@ -1,0 +1,16 @@
+Description: Fix build with glibc 2.22
+Bug-Debian: https://bugs.debian.org/811892
+Forwarded: https://gitlab.com/openobex/mainline/-/merge_requests/2/diffs?commit_id=5daf0765235db81d39e237ec04291b4628f046bc
+Last-Update: <2021-10-04>
+
+--- libopenobex-1.7.1.orig/apps/CMakeLists.txt
++++ libopenobex-1.7.1/apps/CMakeLists.txt
+@@ -4,6 +4,8 @@ include_directories( ${CMAKE_CURRENT_SOU
+ add_subdirectory ( obex_test )
+ add_subdirectory ( ircp )
+ 
++add_definitions ( -D_POSIX_C_SOURCE=200112L -D_BSD_SOURCE)
++
+ set ( OPENOBEX_COMMON_APPS
+   irxfer
+   irobex_palm3
